@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+}
+
+group = 'com.luka.spring'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.11'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.2.4.RELEASE'
+    implementation 'com.h2database:h2'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'org.springframework.boot:spring-boot-starter:2.2.4.RELEASE'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.2.30'
+    implementation 'org.springdoc:springdoc-openapi-security:1.2.30'
+    implementation 'org.springdoc:springdoc-openapi-webmvc-core:1.2.30'
+    implementation 'io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry:3.1.1.RELEASE'
+}
+bootJar{
+    mainClassName = 'com.luka.spring.Application'
+    archiveFileName = 'spring.jar'
+}

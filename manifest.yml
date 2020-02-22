@@ -1,0 +1,18 @@
+---
+applications:
+  - name: lukasub
+    memory: 1GB
+    path: build/libs/spring.jar
+    buildpack: java_buildpack
+    services:
+      - registry
+      - redis
+      - circuit
+      #- cache
+      - rabbit
+    env:
+      JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+}}'
+      JBP_CONFIG_SPRING_AUTO_RECONFIGURATION: '{enabled: false}'
+      TRUST_CERTS: 'api.run.pivotal.io'
+      JAVA_OPTS: '-agentlib:jdwp=transport=dt_socket,server=n,address=92.1.129.27:5005,suspend=y'
+
